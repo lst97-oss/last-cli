@@ -1,8 +1,13 @@
 {
   "name": "@lst97-oss/last-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create projects from payload-cms / tanstack-start templates",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lst97-oss/last-cli.git"
+  },
+  "homepage": "https://github.com/lst97-oss/last-cli#readme",
   "type": "module",
   "bin": {
     "last-cli": "dist/cli.js"
