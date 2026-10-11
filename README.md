@@ -1,5 +1,7 @@
 # last-cli
 
+[![npm version](https://img.shields.io/npm/v/%40lst97-oss%2Flast-cli)](https://www.npmjs.com/package/@lst97-oss/last-cli)
+
 Create projects from LAST templates. The current template is Payload + TanStack Start.
 
 ## Create a project
