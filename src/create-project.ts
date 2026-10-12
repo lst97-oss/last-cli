@@ -5,7 +5,7 @@ import path from 'node:path'
 import { downloadTemplate } from 'giget'
 import { isValidProjectName } from './project-name.js'
 
-export const TEMPLATE_SOURCE = 'gh:lst97-oss/payload-tanstack-start-template#8b5bd35d04d6e941489e1dca2b86ee8ab8f5a455'
+export const TEMPLATE_SOURCE = 'gh:lst97-oss/payload-tanstack-start-template#50a3cd976420483f108aea98a5705b741d7948ca'
 
 type CommandResult = {
   status: number | null
