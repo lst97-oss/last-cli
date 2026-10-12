@@ -59,7 +59,13 @@ async function main(): Promise<void> {
   if (!parsed.yes) {
     const template = await select({
       message: 'Choose a template',
-      options: [{ value: TEMPLATE_SOURCE, label: 'Payload + TanStack Start' }],
+      options: [
+        {
+          value: TEMPLATE_SOURCE,
+          label: 'Payload + TanStack Start',
+          hint: 'Placeholder /, /admin, /api/* + live/ready; users-only, en-only; compose Postgres + smoke + CI',
+        },
+      ],
     })
     if (isCancel(template)) {
       cancel('Project creation cancelled.')
@@ -85,7 +91,7 @@ async function main(): Promise<void> {
   try {
     const result = await createProject({ projectName, cwd: process.cwd(), templateSource, install, initializeGit })
     for (const warning of result.setupWarnings) log.warn(warning)
-    const commands = [`cd ${projectName}`, 'edit .env']
+    const commands = [`cd ${projectName}`, 'edit .env', 'bun run db:up', 'bun run db:migrate']
     if (!install) commands.push('bun install')
     commands.push('bun run dev')
     outro(`${result.setupFailed ? 'Project created with setup issues.' : 'Project created successfully.'}\n\n${commands.join('\n')}`)
