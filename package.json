@@ -24,6 +24,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "check": "bunx @biomejs/biome check .",
+    "lint": "bunx @biomejs/biome lint src",
+    "format": "bunx @biomejs/biome format --write .",
     "test": "tsx --test",
     "prepack": "npm run build"
   },

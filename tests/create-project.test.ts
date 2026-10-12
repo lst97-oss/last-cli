@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
@@ -115,7 +115,10 @@ test('keeps the project and reports setup failures', async () => {
     })
 
     assert.match(result.setupWarnings.join('\n'), /bun install/i)
-    assert.equal(await readFile(path.join(result.projectPath, 'package.json'), 'utf8').then((json) => JSON.parse(json).name), 'my-app')
+    assert.equal(
+      await readFile(path.join(result.projectPath, 'package.json'), 'utf8').then((json) => JSON.parse(json).name),
+      'my-app',
+    )
   } finally {
     await rm(cwd, { recursive: true, force: true })
   }

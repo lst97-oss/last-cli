@@ -94,7 +94,9 @@ async function main(): Promise<void> {
     const commands = [`cd ${projectName}`, 'edit .env', 'bun run db:up', 'bun run db:migrate']
     if (!install) commands.push('bun install')
     commands.push('bun run dev')
-    outro(`${result.setupFailed ? 'Project created with setup issues.' : 'Project created successfully.'}\n\n${commands.join('\n')}`)
+    outro(
+      `${result.setupFailed ? 'Project created with setup issues.' : 'Project created successfully.'}\n\n${commands.join('\n')}`,
+    )
     if (result.setupFailed) process.exitCode = 1
   } catch (error) {
     log.error(error instanceof Error ? error.message : String(error))

@@ -1,6 +1,6 @@
 import { spawnSync } from 'node:child_process'
 import { constants } from 'node:fs'
-import { copyFile, lstat, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { copyFile, lstat, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { downloadTemplate } from 'giget'
 import { isValidProjectName } from './project-name.js'
@@ -82,7 +82,8 @@ function runSetupCommand(
 export async function createProject(options: CreateProjectOptions) {
   const { projectName, cwd, install, initializeGit } = options
   const templateSource = options.templateSource ?? TEMPLATE_SOURCE
-  if (!isValidProjectName(projectName)) throw new Error('Project name must be a lowercase slug using letters, numbers, and hyphens.')
+  if (!isValidProjectName(projectName))
+    throw new Error('Project name must be a lowercase slug using letters, numbers, and hyphens.')
 
   const destination = path.resolve(cwd, projectName)
   const createdDestination = await prepareDestination(destination)
@@ -95,7 +96,10 @@ export async function createProject(options: CreateProjectOptions) {
       try {
         await rm(destination, { recursive: true, force: true })
       } catch (cleanupError) {
-        throw new AggregateError([error, cleanupError], `Project creation failed and the partial directory could not be removed: ${destination}`)
+        throw new AggregateError(
+          [error, cleanupError],
+          `Project creation failed and the partial directory could not be removed: ${destination}`,
+        )
       }
     }
     throw error
