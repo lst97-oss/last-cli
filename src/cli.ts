@@ -63,7 +63,7 @@ async function main(): Promise<void> {
         {
           value: TEMPLATE_SOURCE,
           label: 'Payload + TanStack Start',
-          hint: 'Placeholder /, /admin, /api/* + live/ready; users-only, en-only; compose Postgres + smoke + CI',
+          hint: 'Payload + /admin + /api/*, development-only /ui shadcn showcase; compose Postgres + smoke + CI',
         },
       ],
     })
@@ -91,7 +91,15 @@ async function main(): Promise<void> {
   try {
     const result = await createProject({ projectName, cwd: process.cwd(), templateSource, install, initializeGit })
     for (const warning of result.setupWarnings) log.warn(warning)
-    const commands = [`cd ${projectName}`, 'edit .env', 'bun run db:up', 'bun run db:migrate']
+    const commands = [
+      `cd ${projectName}`,
+      'edit .env',
+      'bun run db:up',
+      'bun run db:migrate',
+      'bun run generate:types',
+      'bun run generate:importmap',
+      'bun run generate-routes',
+    ]
     if (!install) commands.push('bun install')
     commands.push('bun run dev')
     outro(

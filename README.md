@@ -12,7 +12,7 @@ Bare Payload v4 + TanStack Start starter. Boots standalone: placeholder `/`, adm
 - **Shell**: `withPayloadRoot` + `ThemeProvider` (class mode) + Base-UI `Toaster` (`toast.add()`, never sonner); site 404 (`SiteNotFound`) + error boundary (`SiteError`); favicon + `robots.txt` (admin/api disallowed).
 - **Backend kernel** (`src/server/`): `{ data }` / `{ error }` envelope, `HttpError` (5xx hidden on wire), `withContext` (request-id, logs, never-throws), zod `parseWith` + `parseJsonBody` + `parseSearchParams` + `parsePaginationParams` (limit 1–100 default 20). Business Postgres via Bun-native `getBusinessSql()` / `getBusinessDb()`.
 - **Ops**: `/api/live` (no I/O) + `/api/ready` (DB probe, 503 when degraded), Docker `HEALTHCHECK`, minimal security headers, graceful shutdown (Nitro close + SIGINT/SIGTERM drain), `bun run smoke` boot contract, CI (typecheck + biome + migrate + test + node-server build + live smoke), `compose.yaml` local Postgres (`bun run db:up`), single `.bun-version` source.
-- **Frontend**: TanStack Query/Form/Store wired (no explicit providers), Tailwind v4 semantic tokens, shadcn registry baseline (button/toast — re-add the rest via `bunx shadcn add`).
+- **Frontend**: TanStack Query/Form/Store wired (no explicit providers), Tailwind v4 semantic tokens, shadcn components including a development-only `/ui` showcase with sidebar, CodeBlock, and Trace examples.
 
 Deliberately not included: real auth beyond Payload users, collections beyond `users`, i18n (stays en-only until the app has ≥2 locales), pagination UI, rate limiting, OpenAPI, email/storage/RAG/chat.
 
@@ -40,8 +40,11 @@ After creation, edit `.env` and start the app:
 
 ```sh
 cd my-app
-bun run db:up       # local Postgres via compose.yaml
+bun run db:up             # local Postgres via compose.yaml
 bun run db:migrate
+bun run generate:types
+bun run generate:importmap
+bun run generate-routes
 bun run dev
 ```
 
