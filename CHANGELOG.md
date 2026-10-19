@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.0
+
+- Template picker now offers two templates: Payload + TanStack Start (repo renamed to `last-payload-tanstack-start-template`, pin updated to `v0.4.0`) and blank TanStack Start (`last-tanstack-start-template`, no CMS, canonical business kernel). `--yes` still scaffolds the Payload template.
+- README now documents both templates.
+
 ## v0.1.3
 
 - Template pin updated to `payload-tanstack-start-template@03f025e` (`v0.3.0`), including the development-only shadcn UI showcase, sidebar, CodeBlock, and Trace components.

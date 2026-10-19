@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 import { cancel, confirm, intro, isCancel, log, outro, select, text } from '@clack/prompts'
-import { createProject, TEMPLATE_SOURCE } from './create-project.js'
+import { BLANK_TEMPLATE_SOURCE, createProject, TEMPLATE_SOURCE } from './create-project.js'
 import { parseArgs } from './parse-args.js'
 import { isValidProjectName } from './project-name.js'
 
 const usage = `Usage:
   last-cli create [project-name] [--yes]
 
-Create a project from the Payload + TanStack Start template.
+Create a project from a LAST template.
 
 Options:
   --yes   Use defaults, initialize Git, and install dependencies with Bun
@@ -64,6 +64,11 @@ async function main(): Promise<void> {
           value: TEMPLATE_SOURCE,
           label: 'Payload + TanStack Start',
           hint: 'Payload + /admin + /api/*, development-only /ui shadcn showcase; compose Postgres + smoke + CI',
+        },
+        {
+          value: BLANK_TEMPLATE_SOURCE,
+          label: 'Blank TanStack Start',
+          hint: 'No CMS; placeholder / + /api/live + /api/ready; canonical business kernel (src/server/)',
         },
       ],
     })
