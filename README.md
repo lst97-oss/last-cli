@@ -2,9 +2,11 @@
 
 [![npm version](https://img.shields.io/npm/v/%40lst97-oss%2Flast-cli)](https://www.npmjs.com/package/@lst97-oss/last-cli)
 
-Create projects from LAST templates. The current template is Payload + TanStack Start.
+Create projects from LAST templates. Pick Payload + TanStack Start (with CMS) or blank TanStack Start (no CMS).
 
-## What the template includes
+## What the templates include
+
+### Payload + TanStack Start
 
 Bare Payload v4 + TanStack Start starter. Boots standalone: placeholder `/`, admin at `/admin`, REST at `/api/*`. Users-only auth, en-only, Postgres `push:false`.
 
@@ -15,6 +17,12 @@ Bare Payload v4 + TanStack Start starter. Boots standalone: placeholder `/`, adm
 - **Frontend**: TanStack Query/Form/Store wired (no explicit providers), Tailwind v4 semantic tokens, shadcn components including a development-only `/ui` showcase with sidebar, CodeBlock, and Trace examples.
 
 Deliberately not included: real auth beyond Payload users, collections beyond `users`, i18n (stays en-only until the app has ≥2 locales), pagination UI, rate limiting, OpenAPI, email/storage/RAG/chat.
+
+### Blank TanStack Start
+
+Bare TanStack Start starter, no CMS. Boots standalone: placeholder `/`, REST health at `/api/*`. Owns the canonical business-backend kernel in `src/server/` — `{ data }` / `{ error }` envelope, `HttpError` (5xx hidden on wire), `withContext` (request-id, never-throws), zod helpers, Bun-native Postgres (`getBusinessSql()` / `getBusinessDb()`), `/api/live` (no I/O) + `/api/ready` (DB probe) — plus compose local Postgres, smoke boot contract, and CI.
+
+Deliberately not included: Payload, `/admin`, collections, auth beyond the `withAuth` 501 stub.
 
 ## Create a project
 

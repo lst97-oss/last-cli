@@ -3,15 +3,15 @@ import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import test from 'node:test'
-import { createProject, TEMPLATE_SOURCE } from '../src/create-project.js'
+import { BLANK_TEMPLATE_SOURCE, createProject, TEMPLATE_SOURCE } from '../src/create-project.js'
 
 async function makeTempDir(): Promise<string> {
   return mkdtemp(path.join(os.tmpdir(), 'last-cli-test-'))
 }
 
 async function writeTemplateFiles(dir: string): Promise<void> {
-  await writeFile(path.join(dir, 'package.json'), JSON.stringify({ name: 'payload-tanstack-start-template' }))
-  await writeFile(path.join(dir, 'README.md'), '# payload-tanstack-start-template\n')
+  await writeFile(path.join(dir, 'package.json'), JSON.stringify({ name: 'last-payload-tanstack-start-template' }))
+  await writeFile(path.join(dir, 'README.md'), '# last-payload-tanstack-start-template\n')
   await writeFile(path.join(dir, '.env.example'), 'DATABASE_URL=\n')
 }
 
@@ -47,6 +47,14 @@ test('creates a named project from the pinned template and initializes requested
   } finally {
     await rm(cwd, { recursive: true, force: true })
   }
+})
+
+test('both template sources are pinned gh: URLs', () => {
+  for (const source of [TEMPLATE_SOURCE, BLANK_TEMPLATE_SOURCE]) {
+    assert.match(source, /^gh:lst97-oss\/[a-z0-9-]+\#[0-9a-f]{40}$/)
+  }
+  assert.match(TEMPLATE_SOURCE, /^gh:lst97-oss\/last-payload-tanstack-start-template\#/)
+  assert.match(BLANK_TEMPLATE_SOURCE, /^gh:lst97-oss\/last-tanstack-start-template\#/)
 })
 
 test('refuses a non-empty destination without downloading or changing it', async () => {
