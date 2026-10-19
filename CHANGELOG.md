@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.1
+
+- Blank template pin updated to `last-tanstack-start-template` v0.1.1 (full shadcn registry, shiki stack, dev-only `/ui` showcase, UI tests in CI).
+
 ## v0.2.0
 
 - Template picker now offers two templates: Payload + TanStack Start (repo renamed to `last-payload-tanstack-start-template`, pin updated to `v0.4.0`) and blank TanStack Start (`last-tanstack-start-template`, no CMS, canonical business kernel). `--yes` still scaffolds the Payload template.

@@ -8,7 +8,7 @@ import { isValidProjectName } from './project-name.js'
 export const TEMPLATE_SOURCE =
   'gh:lst97-oss/last-payload-tanstack-start-template#8e1323947fadc66f4bcbb3499ee07b1e6996f71f'
 export const BLANK_TEMPLATE_SOURCE =
-  'gh:lst97-oss/last-tanstack-start-template#89746db93c27b0dccd0f679180f737a5517b94f2'
+  'gh:lst97-oss/last-tanstack-start-template#0957b3188ec82e5004213298c6eae53ab31a09c0'
 
 type CommandResult = {
   status: number | null
