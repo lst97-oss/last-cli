@@ -62,6 +62,10 @@ bun run dev
 bun install
 bun run build
 bun test
+bun run check      # format check + Biome lint + bun check typecheck
+bun run format     # bun fmt (Bun 1.4.4+)
+bun run lint:fix   # apply Biome lint/import fixes
+bun check --no-script  # raw typecheck (bare `bun check` runs the aggregate `check` script)
 ```
 
 Node.js 22 or newer is required when running through npm. Bun can run the CLI with `bunx --bun` and is used to install and run the generated template.
