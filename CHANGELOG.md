@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.2
+
+- Bun 1.4.4 toolchain: formatting uses `bun fmt`, typechecking uses `bun check`, and Biome remains lint/import-assist only.
+- Template pins updated to `last-payload-tanstack-start-template` v0.4.1 and `last-tanstack-start-template` v0.1.2 (both Bun 1.4.4 toolchain; no template behaviour changes).
+
 ## v0.2.1
 
 - Blank template pin updated to `last-tanstack-start-template` v0.1.1 (full shadcn registry, shiki stack, dev-only `/ui` showcase, UI tests in CI).

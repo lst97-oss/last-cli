@@ -1,6 +1,6 @@
 {
   "name": "@lst97-oss/last-cli",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Create projects from payload-cms / tanstack-start templates",
   "license": "MIT",
   "repository": {
@@ -23,18 +23,22 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
-    "check": "bunx @biomejs/biome check .",
-    "lint": "bunx @biomejs/biome lint src",
-    "format": "bunx @biomejs/biome format --write .",
+    "format": "bun fmt",
+    "format:check": "bun fmt --check",
+    "fmt:staged": "bun fmt --staged",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "bun check --no-script",
+    "check": "bun run format:check && bun run lint && bun run typecheck",
     "test": "tsx --test",
-    "prepack": "npm run build"
+    "prepack": "bun run build"
   },
   "dependencies": {
     "@clack/prompts": "^1.8.1",
     "giget": "^3.3.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.6.2",
     "@types/node": "^26.6.5",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
