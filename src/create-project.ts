@@ -6,7 +6,7 @@ import { downloadTemplate } from 'giget'
 import { isValidProjectName } from './project-name.js'
 
 export const TEMPLATE_SOURCE =
-  'gh:lst97-oss/last-payload-tanstack-start-template#ec730e9617e97cb38fd8feb523aef83a179e7169'
+  'gh:lst97-oss/last-payload-tanstack-start-template#160ddd9bea2d484178e32db41c0532f1e6d0c603'
 export const BLANK_TEMPLATE_SOURCE =
   'gh:lst97-oss/last-tanstack-start-template#c9f8f6c5bb70fee28965e6738d4fbdaed3a383bc'
 

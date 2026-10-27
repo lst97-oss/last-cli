@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.3
+
+- Payload template pin updated to `last-payload-tanstack-start-template` v0.5.0 (Payload 4.0.0-beta.4, all Payload code consolidated under `src/payload/`, adapter admin route factories). Blank template pin unchanged.
+
 ## v0.2.2
 
 - Bun 1.4.4 toolchain: formatting uses `bun fmt`, typechecking uses `bun check`, and Biome remains lint/import-assist only.
