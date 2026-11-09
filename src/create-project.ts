@@ -6,9 +6,9 @@ import { downloadTemplate } from 'giget'
 import { isValidProjectName } from './project-name.js'
 
 export const TEMPLATE_SOURCE =
-  'gh:lst97-oss/last-payload-tanstack-start-template#160ddd9bea2d484178e32db41c0532f1e6d0c603'
+  'gh:lst97-oss/last-payload-tanstack-start-template#e1ac38e8776ba8354bd6c56aec2fb3170587df25'
 export const BLANK_TEMPLATE_SOURCE =
-  'gh:lst97-oss/last-tanstack-start-template#c9f8f6c5bb70fee28965e6738d4fbdaed3a383bc'
+  'gh:lst97-oss/last-tanstack-start-template#d1043e02f657dec1f49b31fe1561c8a529625cea'
 
 type CommandResult = {
   status: number | null
