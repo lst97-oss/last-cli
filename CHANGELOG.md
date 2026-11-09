@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.4
+
+- Template pins updated to `last-payload-tanstack-start-template` v0.5.1 and `last-tanstack-start-template` v0.1.3 (shared structured logging, graceful shutdown on Nitro `close`, Postgres 18 for local and CI, dependency bumps).
+- Biome bumped to 2.6.6; the CI checkout action is now `actions/checkout@v7`.
+
 ## v0.2.3
 
 - Payload template pin updated to `last-payload-tanstack-start-template` v0.5.0 (Payload 4.0.0-beta.4, all Payload code consolidated under `src/payload/`, adapter admin route factories). Blank template pin unchanged.
